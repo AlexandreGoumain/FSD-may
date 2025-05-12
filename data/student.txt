@@ -1,0 +1,136 @@
+{
+  "students": [
+    {
+      "name": "MARIA RODRIGUEZ",
+      "notes": [
+        19,
+        20,
+        18
+      ],
+      "address": "321 Calle de Alcalá, Madrid",
+      "moyenne": 19
+    },
+    {
+      "name": "THOMAS MÜLLER",
+      "notes": [
+        18,
+        19,
+        17
+      ],
+      "address": "Am Kurfürstendamm 1, Berlin",
+      "moyenne": 18
+    },
+    {
+      "name": "SOPHIE MARTIN",
+      "notes": [
+        18,
+        16,
+        19
+      ],
+      "address": "456 avenue des Lilas, Lyon",
+      "moyenne": 17.666666666666668
+    },
+    {
+      "name": "SARA KHAN",
+      "notes": [
+        17,
+        18,
+        16
+      ],
+      "address": "34 Lahore Road, Karachi",
+      "moyenne": 17
+    },
+    {
+      "name": "EMMA JOHNSON",
+      "notes": [
+        16,
+        18,
+        17
+      ],
+      "address": "789 Maple Avenue, Toronto",
+      "moyenne": 17
+    },
+    {
+      "name": "EMILY SMITH",
+      "notes": [
+        16,
+        17,
+        15
+      ],
+      "address": "567 Elm Street, New York",
+      "moyenne": 16
+    },
+    {
+      "name": "JEAN DUPONT",
+      "notes": [
+        15,
+        17,
+        14
+      ],
+      "address": "123 rue de la République, Paris",
+      "moyenne": 15.333333333333334
+    },
+    {
+      "name": "JAVIER LOPEZ",
+      "notes": [
+        15,
+        16,
+        14
+      ],
+      "address": "89 Carrer de Mallorca, Barcelona",
+      "moyenne": 15
+    },
+    {
+      "name": "DIEGO HERNANDEZ",
+      "notes": [
+        14,
+        15,
+        16
+      ],
+      "address": "456 Avenida de la Constitución, Mexico City",
+      "moyenne": 15
+    },
+    {
+      "name": "LUCA FERRARI",
+      "notes": [
+        14,
+        15,
+        13
+      ],
+      "address": "Via Roma 1, Milano",
+      "moyenne": 14
+    },
+    {
+      "name": "AHMED AMIRI",
+      "notes": [
+        12,
+        14,
+        13
+      ],
+      "address": "789 rue Ibn Sina, Casablanca",
+      "moyenne": 13
+    },
+    {
+      "name": "ANNA PETROVA",
+      "notes": [
+        13,
+        14,
+        12
+      ],
+      "address": "123 улица Тверская, Moscow",
+      "moyenne": 13
+    },
+    {
+      "name": "Clarisse",
+      "address": "Marseille",
+      "notes": [],
+      "moyenne": 0
+    },
+    {
+      "name": "Sonia",
+      "address": "Paris",
+      "notes": [],
+      "moyenne": 0
+    }
+  ]
+}
