@@ -9,7 +9,8 @@
         "dev:os": "nodemon os_exemple.js",
         "dev:fs": "nodemon fs_exemple.js",
         "dev:fs:exo": "nodemon fs_exercice_student.js",
-        "dev:challenge": "nodemon exercices/challengeStudentAPP/index.js"
+        "dev:challenge": "nodemon exercices/challengeStudentAPP/index.js",
+        "dev:customer": "nodemon exercices/exo_customer/index.js"
     },
     "author": "",
     "license": "ISC",
