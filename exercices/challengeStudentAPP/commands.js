@@ -27,8 +27,8 @@ export const commands = [
         description: "Ajoute une note à un élève (ex: add note khan 15)",
     },
     {
-        name: "add mention <name> <mention>",
-        description: "Ajoute une mention à un élève (ex: add mention khan 15)",
+        name: "add mention <name>",
+        description: "Ajoute une mention à un élève (ex: add mention khan)",
     },
     {
         name: "help",

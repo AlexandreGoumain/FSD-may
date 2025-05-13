@@ -1,13 +1,6 @@
 import { data, writeData } from "../config.js";
 
 export const addMention = (rl, studentName = null) => {
-    const availableMentions = [
-        process.env.MENTIONS_PASSABLE,
-        process.env.MENTIONS_ASSEZ_BIEN,
-        process.env.MENTIONS_BIEN,
-        process.env.MENTIONS_TRES_BIEN,
-    ].filter((mention) => mention);
-
     const askForName = () => {
         if (studentName) {
             const student = data.find(
@@ -19,7 +12,7 @@ export const addMention = (rl, studentName = null) => {
             );
 
             if (student) {
-                askForMention(student);
+                calculateAndAddMention(student);
             } else {
                 console.log("Aucun élève trouvé. Veuillez réessayer.");
                 rl.question("Quel est le nom de l'élève ? ", (name) => {
@@ -36,7 +29,7 @@ export const addMention = (rl, studentName = null) => {
                 );
 
                 if (student) {
-                    askForMention(student);
+                    calculateAndAddMention(student);
                 } else {
                     console.log("Aucun élève trouvé. Veuillez réessayer.");
                     askForName();
@@ -45,27 +38,42 @@ export const addMention = (rl, studentName = null) => {
         }
     };
 
-    const askForMention = (student) => {
-        console.log("Mentions disponibles :");
-        availableMentions.forEach((mention, index) => {
-            console.log(`${index + 1}. ${mention}`);
-        });
+    const calculateAndAddMention = (student) => {
+        if (!student.notes || student.notes.length === 0) {
+            console.log(
+                "L'étudiant n'a pas de notes. Impossible de calculer une mention."
+            );
+            rl.prompt();
+            return;
+        }
 
-        rl.question("Entrez le numéro de la mention : ", (choice) => {
-            const index = parseInt(choice, 10) - 1;
+        const sum = student.notes.reduce((acc, note) => acc + note, 0);
+        const average = sum / student.notes.length;
 
-            if (index >= 0 && index < availableMentions.length) {
-                student.mention = availableMentions[index];
-                writeData(data);
-                console.log(
-                    `Mention "${student.mention}" ajoutée à ${student.name}`
-                );
-                rl.prompt();
-            } else {
-                console.log("Choix invalide. Veuillez réessayer.");
-                askForMention(student);
-            }
-        });
+        let mention;
+        if (average >= 16) {
+            mention = process.env.MENTIONS_TRES_BIEN;
+        } else if (average >= 14) {
+            mention = process.env.MENTIONS_BIEN;
+        } else if (average >= 12) {
+            mention = process.env.MENTIONS_ASSEZ_BIEN;
+        } else if (average >= 10) {
+            mention = process.env.MENTIONS_PASSABLE;
+        } else {
+            console.log(
+                `Moyenne insuffisante (${average.toFixed(
+                    2
+                )}) pour obtenir une mention.`
+            );
+            rl.prompt();
+            return;
+        }
+
+        student.mention = mention;
+        writeData(data);
+        console.log(`Moyenne: ${average.toFixed(2)}`);
+        console.log(`Mention "${student.mention}" ajoutée à ${student.name}`);
+        rl.prompt();
     };
 
     askForName();
