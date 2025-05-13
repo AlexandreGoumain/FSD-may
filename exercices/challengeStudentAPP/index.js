@@ -17,32 +17,30 @@ rl.on("line", (line) => {
 
     switch (commandName) {
         case "list":
-            commands.list();
+            commands.list(rl);
             break;
         case "find":
-            commands.findString(commandArgs.join(" "));
+            commands.findString(commandArgs.join(" "), rl);
             break;
         case "more":
-            commands.moreNumber(commandArgs.join(" "));
+            commands.moreNumber(commandArgs.join(" "), rl);
             break;
         case "less":
-            commands.lessNumber(commandArgs.join(" "));
+            commands.lessNumber(commandArgs.join(" "), rl);
             break;
         case "exit":
             console.log("Fermeture de l'application...");
             rl.close();
             break;
         case "add":
-            if (commandArgs[0] === "note" && commandArgs.length >= 3) {
-                commands.addNote(commandArgs[1], commandArgs[2]);
+            if (commandArgs[0] === "note") {
+                commands.addNote(rl);
             } else {
-                console.log(
-                    "Commande invalide. Utilisez 'add note [nom] [note]'"
-                );
+                console.log("Commande invalide. Utilisez 'add note'");
             }
             break;
         default:
-            commands.help(commandName);
+            commands.help(commandName, rl);
             break;
     }
     rl.prompt();
