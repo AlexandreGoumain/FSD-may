@@ -1,5 +1,10 @@
+import dotenv from "dotenv";
 import readline from "readline";
 import * as commands from "./commands/index.js";
+
+dotenv.config({
+    path: "exercices/challengeStudentAPP/.env",
+});
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -35,8 +40,12 @@ rl.on("line", (line) => {
         case "add":
             if (commandArgs[0] === "note") {
                 commands.addNote(rl);
+            } else if (commandArgs[0] === "mention") {
+                commands.addMention(rl);
             } else {
-                console.log("Commande invalide. Utilisez 'add note'");
+                console.log(
+                    "Commande invalide. Utilisez 'add note' ou 'add mention'"
+                );
             }
             break;
         default:
