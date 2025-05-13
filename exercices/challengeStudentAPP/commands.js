@@ -22,4 +22,12 @@ export const commands = [
         name: "exit",
         description: "Quitte le programme.",
     },
+    {
+        name: "add note <name> <note>",
+        description: "Ajoute une note à un élève (ex: add note khan 15)",
+    },
+    {
+        name: "help",
+        description: "Affiche l'aide.",
+    },
 ];

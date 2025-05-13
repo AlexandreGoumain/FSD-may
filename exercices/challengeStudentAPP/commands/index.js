@@ -1,3 +1,4 @@
+export * from "./add_note.js";
 export * from "./find_string.js";
 export * from "./help.js";
 export * from "./less_number.js";

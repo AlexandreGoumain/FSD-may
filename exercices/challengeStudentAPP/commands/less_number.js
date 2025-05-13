@@ -1,17 +1,7 @@
-import { data } from "../config.js";
+import { data, formatedNote } from "../config.js";
 
 export const lessNumber = (string) => {
-    const value = Number(string);
-
-    if (isNaN(value)) {
-        console.log("Veuillez entrer une valeur numérique après 'less'");
-        return;
-    }
-
-    if (value < 0 || value > 20) {
-        console.log("La valeur doit être comprise entre 0 et 20");
-        return;
-    }
+    const value = formatedNote(string);
 
     const students = data.filter(
         (student) =>
